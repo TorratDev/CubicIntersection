@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\CubeIntersection.Api\CubeIntersection.Api.csproj" />
-        <ProjectReference Include="..\..\src\CubeIntersection.Infrastructure\CubeIntersection.Infrastructure.csproj" />
+        <ProjectReference Include="..\..\src\CubicIntersection.Api\CubicIntersection.Api.csproj" />
+        <ProjectReference Include="..\..\src\CubicIntersection.Infrastructure\CubicIntersection.Infrastructure.csproj" />
     </ItemGroup>
 </Project>

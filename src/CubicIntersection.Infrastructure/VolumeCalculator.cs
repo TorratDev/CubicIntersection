@@ -1,7 +1,7 @@
-using CubeIntersection.Application;
-using CubeIntersection.Domain;
+using CubicIntersection.Application;
+using CubicIntersection.Domain;
 
-namespace CubeIntersection.Infrastructure;
+namespace CubicIntersection.Infrastructure;
 
 public class VolumeCalculator : IVolumeCalculator
 {

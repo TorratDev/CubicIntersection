@@ -1,6 +1,6 @@
-using CubeIntersection.Application;
-using CubeIntersection.Domain;
-using CubeIntersection.Infrastructure;
+using CubicIntersection.Application;
+using CubicIntersection.Domain;
+using CubicIntersection.Infrastructure;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);

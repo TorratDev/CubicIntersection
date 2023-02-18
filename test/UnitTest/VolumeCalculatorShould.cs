@@ -1,5 +1,5 @@
-using CubeIntersection.Domain;
-using CubeIntersection.Infrastructure;
+using CubicIntersection.Domain;
+using CubicIntersection.Infrastructure;
 using FluentAssertions;
 using Xunit;
 

@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace CubeIntersection.Domain;
+namespace CubicIntersection.Domain;
 
 [DataContract]
 public record CubicResponse

@@ -1,6 +1,6 @@
-using CubeIntersection.Domain;
+using CubicIntersection.Domain;
 
-namespace CubeIntersection.Application;
+namespace CubicIntersection.Application;
 
 public interface IPipeline
 {

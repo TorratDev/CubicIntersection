@@ -4,10 +4,11 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <LangVersion>latestmajor</LangVersion>
+        <RootNamespace>CubicIntersection.Infrastructure</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\CubeIntersection.Application\CubeIntersection.Application.csproj" />
+        <ProjectReference Include="..\CubicIntersection.Application\CubicIntersection.Application.csproj" />
     </ItemGroup>
 
 </Project>

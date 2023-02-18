@@ -2,17 +2,17 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5325B601-B0F3-4324-B4F6-58D9B2028593}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeIntersection.Api", "src\CubeIntersection.Api\CubeIntersection.Api.csproj", "{B03E394C-12F1-4D66-9960-2F846D64CC14}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubicIntersection.Api", "src\CubicIntersection.Api\CubicIntersection.Api.csproj", "{B03E394C-12F1-4D66-9960-2F846D64CC14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeIntersection.Domain", "src\CubeIntersection.Domain\CubeIntersection.Domain.csproj", "{2FE235D9-B35A-4DDF-B2DE-44ED93A643F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubicIntersection.Domain", "src\CubicIntersection.Domain\CubicIntersection.Domain.csproj", "{2FE235D9-B35A-4DDF-B2DE-44ED93A643F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeIntersection.Application", "src\CubeIntersection.Application\CubeIntersection.Application.csproj", "{54A46D43-1857-48C7-9499-1E0899FA88F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubicIntersection.Application", "src\CubicIntersection.Application\CubicIntersection.Application.csproj", "{54A46D43-1857-48C7-9499-1E0899FA88F5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3435BD41-26D6-4C20-8F23-F1E5E74B6D49}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "test\UnitTest\UnitTest.csproj", "{1EDE574F-6A2F-4CA8-A75B-B9CBED5E3A2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeIntersection.Infrastructure", "src\CubeIntersection.Infrastructure\CubeIntersection.Infrastructure.csproj", "{239ADF46-E5B4-4796-BB63-7E47EE9F19C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubicIntersection.Infrastructure", "src\CubicIntersection.Infrastructure\CubicIntersection.Infrastructure.csproj", "{239ADF46-E5B4-4796-BB63-7E47EE9F19C5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTest", "test\IntegrationTest\IntegrationTest.csproj", "{01FC1136-DBA3-46D8-9338-0FB10696DD94}"
 EndProject

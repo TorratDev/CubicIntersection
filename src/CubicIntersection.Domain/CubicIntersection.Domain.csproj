@@ -4,10 +4,6 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <LangVersion>latestmajor</LangVersion>
+        <RootNamespace>CubicIntersection.Domain</RootNamespace>
     </PropertyGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\CubeIntersection.Domain\CubeIntersection.Domain.csproj" />
-    </ItemGroup>
-
 </Project>
