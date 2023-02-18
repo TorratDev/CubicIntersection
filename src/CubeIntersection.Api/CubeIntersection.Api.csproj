@@ -14,17 +14,22 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
-        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
-        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.3" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="7.0.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.3"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="7.0.0"/>
 
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\CubeIntersection.Infrastructure\CubeIntersection.Infrastructure.csproj" />
+        <ProjectReference Include="..\CubeIntersection.Infrastructure\CubeIntersection.Infrastructure.csproj"/>
     </ItemGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="IntegrationTest"/>
+    </ItemGroup>
+
 
 </Project>

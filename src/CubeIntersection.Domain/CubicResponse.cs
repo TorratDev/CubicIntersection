@@ -1,8 +1,11 @@
+using System.Runtime.Serialization;
+
 namespace CubeIntersection.Domain;
 
-public class CubicResponse
+[DataContract]
+public record CubicResponse
 {
-    private CubicResponse()
+    public CubicResponse()
     {
     }
 
@@ -12,8 +15,9 @@ public class CubicResponse
         AreTheyColliding = intersectedVolume > 0;
     }
 
-    public bool AreTheyColliding { get; init; }
-    public double IntersectedVolume { get; init; }
+    [DataMember(Order = 1)] public bool AreTheyColliding { get; set; }
+
+    [DataMember(Order = 2)] public double IntersectedVolume { get; set; }
 
     public static CubicResponse Success(double intersectedVolume)
     {

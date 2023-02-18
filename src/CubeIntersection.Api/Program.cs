@@ -50,3 +50,8 @@ app.MapPost("/api/pipeline", (CubicRequest cubicRequest, IPipeline pipeline) =>
 
 
 app.Run();
+
+
+public partial class Program
+{
+}
