@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeIntersection.Applicatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3435BD41-26D6-4C20-8F23-F1E5E74B6D49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "test\Test\Test.csproj", "{1EDE574F-6A2F-4CA8-A75B-B9CBED5E3A2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "test\UnitTest\UnitTest.csproj", "{1EDE574F-6A2F-4CA8-A75B-B9CBED5E3A2B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeIntersection.Infrastructure", "src\CubeIntersection.Infrastructure\CubeIntersection.Infrastructure.csproj", "{239ADF46-E5B4-4796-BB63-7E47EE9F19C5}"
 EndProject

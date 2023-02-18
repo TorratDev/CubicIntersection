@@ -11,7 +11,7 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1",
         new OpenApiInfo
         {
-            Title = "My API",
+            Title = "My Cubic Intersection API",
             Version = "v1"
         });
 });
@@ -25,7 +25,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My Cubic Intersection API");
     c.RoutePrefix = string.Empty;
 });
 
