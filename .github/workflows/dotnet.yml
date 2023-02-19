@@ -37,21 +37,31 @@ jobs:
   coverage:
     needs: test
     runs-on: ubuntu-latest
+    
     steps:
       - name: Install ReportGenerator
         run: dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.10.12
 
       - name: Generate coverage report
         run: reportgenerator "-reports:**/coverage.cobertura.xml" "-targetdir:TestResults/CoverageReport" "-reporttypes:Html;"
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: ./MyProject.Tests/CoverageReport
   
   deploy-coverage:
     needs: coverage
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Deploy coverage report
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./TestResults/CoverageReport
+          publish_dir: ./MyProject.Tests/CoverageReport
           publish_branch: gh-pages
           commit_message: "Update code coverage report"
