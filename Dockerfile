@@ -25,7 +25,7 @@ WORKDIR /app
 
 COPY --from=publish /app/publish .
 
-ENV ASPNETCORE_URLS=http://+:$PORT
-EXPOSE $PORT
+ENV ASPNETCORE_ENVIRONMENT=Production
+ENV ASPNETCORE_URLS=http://0.0.0.0:$PORT
 
 ENTRYPOINT ["dotnet", "CubicIntersection.Api.dll"]
