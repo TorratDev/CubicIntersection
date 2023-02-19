@@ -6,8 +6,8 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-var http = $"http://*:{port}";
-
+var http = $"http://0.0.0.0:{port}";
+Console.WriteLine(port);
 builder.WebHost.UseUrls(http);
 
 builder.Services.AddEndpointsApiExplorer();
