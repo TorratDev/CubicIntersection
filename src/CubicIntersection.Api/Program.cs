@@ -1,7 +1,6 @@
 using CubicIntersection.Api;
 using CubicIntersection.Application;
 using CubicIntersection.Domain;
-using CubicIntersection.Infrastructure;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -50,7 +49,6 @@ app.MapPost("/api/pipeline", (CubicRequest cubicRequest, IPipeline pipeline) =>
 
     return Results.Ok(response);
 });
-
 
 app.Run();
 
