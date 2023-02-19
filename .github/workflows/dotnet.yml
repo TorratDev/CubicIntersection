@@ -3,38 +3,51 @@ name: Build and Test with Coverage
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
-
       - name: Setup .NET 6
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 6.0.x
-
       - name: Restore NuGet packages
         run: dotnet restore
-
       - name: Build
         run: dotnet build --configuration Release
 
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET 6
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
       - name: Test
         run: dotnet test --configuration Release --collect:"XPlat Code Coverage" --settings coverlet.runsettings
 
+  coverage:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
       - name: Install ReportGenerator
         run: dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.10.12
 
       - name: Generate coverage report
         run: reportgenerator "-reports:**/coverage.cobertura.xml" "-targetdir:TestResults/CoverageReport" "-reporttypes:Html;"
-
+  
+  deploy-coverage:
+    needs: coverage
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy coverage report
         uses: peaceiris/actions-gh-pages@v3
         with:
