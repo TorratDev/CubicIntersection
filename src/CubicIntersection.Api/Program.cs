@@ -5,6 +5,11 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+var http = $"http://*:{port}";
+
+builder.WebHost.UseUrls(http);
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddMemoryCache();
 builder.Services.AddSwaggerGen(c =>
