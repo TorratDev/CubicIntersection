@@ -11,4 +11,8 @@
         <ProjectReference Include="..\CubicIntersection.Application\CubicIntersection.Application.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.1" />
+    </ItemGroup>
+
 </Project>

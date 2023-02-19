@@ -3,6 +3,7 @@ using CubicIntersection.Application;
 using CubicIntersection.Domain;
 using CubicIntersection.Infrastructure;
 using FluentAssertions;
+using Microsoft.Extensions.Caching.Memory;
 using Moq;
 using Xunit;
 
@@ -10,6 +11,13 @@ namespace IntegrationTest;
 
 public class PipelineShould
 {
+    private readonly Mock<IMemoryCache> _mockCache;
+
+    public PipelineShould()
+    {
+        _mockCache = new Mock<IMemoryCache>();
+    }
+
     [Fact]
     public void ReachCalculatorIfIntersectReturnsTrue()
     {
@@ -25,7 +33,7 @@ public class PipelineShould
             calculator.Intersected(It.IsAny<Cubic>(), It.IsAny<Cubic>())
         ).Returns(fixture.Create<double>());
 
-        var pipeline = new Pipeline(mockIntersectService.Object, mockVolumeCalculator.Object);
+        var pipeline = new Pipeline(mockIntersectService.Object, mockVolumeCalculator.Object, _mockCache.Object);
 
         var cubicResponse = pipeline.Run(fixture.Create<CubicRequest>());
 
@@ -43,14 +51,9 @@ public class PipelineShould
         double firstDimension, double firstCenter,
         double secondDimension, double secondCenter)
     {
-        var first = new Cubic(new Dimensions(firstDimension, firstDimension, firstDimension),
-            new Center(firstCenter, firstCenter, firstCenter));
-        var second = new Cubic(new Dimensions(secondDimension, secondDimension, secondDimension),
-            new Center(secondCenter, secondCenter, secondCenter));
-        var cubicRequest = new CubicRequest(first, second);
-        var pipeline = new Pipeline(new IntersectService(), new VolumeCalculator());
+        var pipeline = BuildPipeline(firstDimension, firstCenter, secondDimension, secondCenter, out var request);
 
-        var cubicResponse = pipeline.Run(cubicRequest);
+        var cubicResponse = pipeline.Run(request);
 
         cubicResponse.AreTheyColliding.Should().BeTrue();
         cubicResponse.IntersectedVolume.Should().BeGreaterThan(0);
@@ -65,15 +68,29 @@ public class PipelineShould
         double firstDimension, double firstCenter,
         double secondDimension, double secondCenter)
     {
+        var pipeline = BuildPipeline(firstDimension, firstCenter, secondDimension, secondCenter, out var request);
+
+        var cubicResponse = pipeline.Run(request);
+
+        cubicResponse.AreTheyColliding.Should().BeFalse();
+    }
+
+    private Pipeline BuildPipeline(double firstDimension, double firstCenter, double secondDimension,
+        double secondCenter, out CubicRequest cubicRequest)
+    {
+        cubicRequest = BuildCubicRequest(firstDimension, firstCenter, secondDimension, secondCenter);
+
+        return new Pipeline(new IntersectService(), new VolumeCalculator(), _mockCache.Object);
+    }
+
+    private static CubicRequest BuildCubicRequest(double firstDimension, double firstCenter, double secondDimension,
+        double secondCenter)
+    {
         var first = new Cubic(new Dimensions(firstDimension, firstDimension, firstDimension),
             new Center(firstCenter, firstCenter, firstCenter));
         var second = new Cubic(new Dimensions(secondDimension, secondDimension, secondDimension),
             new Center(secondCenter, secondCenter, secondCenter));
         var cubicRequest = new CubicRequest(first, second);
-        var pipeline = new Pipeline(new IntersectService(), new VolumeCalculator());
-
-        var cubicResponse = pipeline.Run(cubicRequest);
-
-        cubicResponse.AreTheyColliding.Should().BeFalse();
+        return cubicRequest;
     }
 }
