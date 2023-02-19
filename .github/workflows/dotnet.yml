@@ -3,10 +3,10 @@ name: Build and Test with Coverage
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build-and-test:
@@ -27,13 +27,13 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: Test
-        run: dotnet test --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+        run: dotnet test --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
 
       - name: Install ReportGenerator
         run: dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.10.12
 
       - name: Generate coverage report
-        run: reportgenerator "-reports:TestResults/coverage.opencover.xml" "-targetdir:TestResults/CoverageReport" "-reporttypes:HtmlInline_AzurePipelines;HtmlChart_AzurePipelines"
+        run: reportgenerator "-reports:TestResults/coverage.cobertura.xml" "-targetdir:TestResults/CoverageReport" "-reporttypes:HtmlInline_AzurePipelines;HtmlChart_AzurePipelines"
 
       - name: Deploy coverage report
         uses: peaceiris/actions-gh-pages@v3
