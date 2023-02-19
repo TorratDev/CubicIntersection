@@ -3,17 +3,20 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace IntegrationTest;
 
+[Collection("IntegrationTest")]
 public abstract class IntegrationTestBase
 {
     protected readonly HttpClient Client;
 
-    protected IntegrationTestBase(ITestOutputHelper outputHelper, WebApplicationFactory<Program> factory)
+    protected IntegrationTestBase(ITestOutputHelper outputHelper,
+        WebApplicationFactory<CubicIntersection.Api.Program> factory)
     {
-        factory.WithWebHostBuilder(builder =>
+        var server = factory.WithWebHostBuilder(builder =>
         {
             builder.ConfigureLogging(loggingBuilder =>
             {
@@ -23,7 +26,7 @@ public abstract class IntegrationTestBase
 
             builder.ConfigureTestServices(collection =>
             {
-                collection.AddMvc().AddApplicationPart(typeof(Program).Assembly);
+                collection.AddMvc().AddApplicationPart(typeof(CubicIntersection.Api.Program).Assembly);
 
                 ConfigureServices(collection);
             });
@@ -31,7 +34,7 @@ public abstract class IntegrationTestBase
             builder.UseEnvironment("Development");
         });
 
-        Client = factory.CreateClient();
+        Client = server.CreateClient();
     }
 
 

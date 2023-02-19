@@ -1,9 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
 using AutoFixture;
 using CubicIntersection.Application;
 using CubicIntersection.Domain;
 using CubicIntersection.Infrastructure;
 using FluentAssertions;
-using Microsoft.Extensions.Caching.Memory;
 using Moq;
 using Xunit;
 
@@ -11,11 +11,11 @@ namespace IntegrationTest;
 
 public class PipelineShould
 {
-    private readonly Mock<IMemoryCache> _mockCache;
+    private readonly Mock<IResponseCache> _mockCache;
 
     public PipelineShould()
     {
-        _mockCache = new Mock<IMemoryCache>();
+        _mockCache = new Mock<IResponseCache>();
     }
 
     [Fact]

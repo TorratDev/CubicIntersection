@@ -20,6 +20,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddScoped<IPipeline, Pipeline>();
 builder.Services.AddScoped<IIntersectService, IntersectService>();
 builder.Services.AddScoped<IVolumeCalculator, VolumeCalculator>();
+builder.Services.AddScoped<IResponseCache, ResponseCache>();
 
 var app = builder.Build();
 
@@ -53,6 +54,9 @@ app.MapPost("/api/pipeline", (CubicRequest cubicRequest, IPipeline pipeline) =>
 app.Run();
 
 
-public partial class Program
+namespace CubicIntersection.Api
 {
+    public partial class Program
+    {
+    }
 }

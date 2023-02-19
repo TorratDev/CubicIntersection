@@ -8,19 +8,17 @@ public class Pipeline : IPipeline
 {
     private readonly IIntersectService _intersectService;
     private readonly IVolumeCalculator _volumeCalculator;
-    private readonly IMemoryCache _cache;
+    private readonly IResponseCache _cache;
     private readonly MemoryCacheEntryOptions _cacheEntryOptions;
 
     public Pipeline(
         IIntersectService intersectService,
         IVolumeCalculator volumeCalculator,
-        IMemoryCache cache)
+        IResponseCache cache)
     {
         _intersectService = intersectService;
         _volumeCalculator = volumeCalculator;
         _cache = cache;
-        _cacheEntryOptions = new MemoryCacheEntryOptions()
-            .SetAbsoluteExpiration(TimeSpan.FromHours(1));
     }
 
     public CubicResponse Run(CubicRequest cubicRequest)
@@ -37,7 +35,7 @@ public class Pipeline : IPipeline
             ? CubicResponse.Success(_volumeCalculator.Intersected(cubicRequest.First, cubicRequest.Second))
             : CubicResponse.Failure();
 
-        _cache.Set(key, cubicResponse, _cacheEntryOptions);
+        _cache.Set(key, cubicResponse);
 
         return cubicResponse;
     }
