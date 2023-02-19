@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <LangVersion>latestmajor</LangVersion>
-        <RootNamespace>CubicIntersection.Domain</RootNamespace>
-    </PropertyGroup>
-</Project>
