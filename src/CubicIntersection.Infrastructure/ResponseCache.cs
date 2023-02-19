@@ -1,5 +1,7 @@
 using CubicIntersection.Application;
+using CubicIntersection.Domain;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Options;
 
 namespace CubicIntersection.Infrastructure;
 
@@ -8,10 +10,10 @@ public sealed class ResponseCache : IResponseCache
     private readonly IMemoryCache _cache;
     private readonly MemoryCacheEntryOptions _cacheEntryOptions;
 
-    public ResponseCache(IMemoryCache cache)
+    public ResponseCache(IMemoryCache cache, IOptionsMonitor<CacheOptions> options)
     {
         _cacheEntryOptions = new MemoryCacheEntryOptions()
-            .SetAbsoluteExpiration(TimeSpan.FromHours(1));
+            .SetAbsoluteExpiration(options.CurrentValue.Lifetime);
         _cache = cache;
     }
 

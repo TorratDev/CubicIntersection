@@ -1,6 +1,5 @@
 using CubicIntersection.Application;
 using CubicIntersection.Domain;
-using Microsoft.Extensions.Caching.Memory;
 
 namespace CubicIntersection.Infrastructure;
 
@@ -9,7 +8,6 @@ public class Pipeline : IPipeline
     private readonly IIntersectService _intersectService;
     private readonly IVolumeCalculator _volumeCalculator;
     private readonly IResponseCache _cache;
-    private readonly MemoryCacheEntryOptions _cacheEntryOptions;
 
     public Pipeline(
         IIntersectService intersectService,
