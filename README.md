@@ -1,5 +1,7 @@
 # CubicIntersection
 
+[![Build and Test with Coverage](https://github.com/TorratDev/CubicIntersection/actions/workflows/dotnet.yml/badge.svg)](https://github.com/TorratDev/CubicIntersection/actions/workflows/dotnet.yml)
+
 ## Web API in .NET 6 with DDD
 
 This is a sample web API application built with .NET 6 using the Domain-Driven Design (DDD) pattern.
