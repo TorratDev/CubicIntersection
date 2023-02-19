@@ -1,3 +1,4 @@
+using CubicIntersection.Api;
 using CubicIntersection.Application;
 using CubicIntersection.Domain;
 using CubicIntersection.Infrastructure;
@@ -17,10 +18,10 @@ builder.Services.AddSwaggerGen(c =>
         });
 });
 
-builder.Services.AddScoped<IPipeline, Pipeline>();
-builder.Services.AddScoped<IIntersectService, IntersectService>();
-builder.Services.AddScoped<IVolumeCalculator, VolumeCalculator>();
-builder.Services.AddScoped<IResponseCache, ResponseCache>();
+builder.Services.AddServices();
+
+builder.Configuration.AddAppSettingsConfiguration(builder.Environment);
+builder.Services.Configure<CacheOptions>(builder.Configuration.GetSection("Cache"));
 
 var app = builder.Build();
 
