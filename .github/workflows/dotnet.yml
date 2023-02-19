@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release
 
-  test:
+  test-and-coverage:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -34,10 +34,6 @@ jobs:
       - name: Test
         run: dotnet test --configuration Release --collect:"XPlat Code Coverage" --settings coverlet.runsettings
 
-  coverage:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
       - name: Install ReportGenerator
         run: dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.10.12
 
