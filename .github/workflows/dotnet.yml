@@ -38,7 +38,7 @@ jobs:
         run: dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.10.12
 
       - name: Generate coverage report
-        run: reportgenerator -reports:'**/coverage.cobertura.xml' "-targetdir:TestResults/CoverageReport" "-reporttypes:Html,Badges;"
+        run: reportgenerator -reports:'**/coverage.cobertura.xml' "-targetdir:TestResults/CoverageReport" "-reporttypes:Html;JsonSummary"
 
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@1.1.3
