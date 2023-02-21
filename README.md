@@ -1,6 +1,7 @@
 # CubicIntersection
 
 [![Build and Test with Coverage](https://github.com/TorratDev/CubicIntersection/actions/workflows/dotnet.yml/badge.svg)](https://github.com/TorratDev/CubicIntersection/actions/workflows/dotnet.yml)
+[![Coverage Status](https://img.shields.io/badge/dynamic/json?label=Coverage&query=%24.lines.percent&url=https%3A%2F%2Fraw.githubusercontent.com%2FTorratDev%2FCubicIntersection%2Fmaster%2Fcoveragereport%2Fsummary.json)](https://github.com/TorratDev/CubicIntersection/actions/workflows/dotnet.yml)
 
 ## Web API in .NET 6 with DDD
 
