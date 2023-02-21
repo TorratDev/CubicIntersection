@@ -1,7 +1,6 @@
 # CubicIntersection
 
 [![Build and Test with Coverage](https://github.com/TorratDev/CubicIntersection/actions/workflows/dotnet.yml/badge.svg)](https://github.com/TorratDev/CubicIntersection/actions/workflows/dotnet.yml)
-
 [![Coverage Status](https://coveralls.io/repos/github/TorratDev/CubicIntersection/badge.svg?branch=master)](https://coveralls.io/github/TorratDev/CubicIntersection?branch=master)
 
 ## Web API in .NET 6 with DDD
