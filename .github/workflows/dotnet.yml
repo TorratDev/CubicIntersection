@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: coverage-report
-          path: coveragereport
+          path: TestResults/CoverageReport
       
       - name: Deploy coverage report
         uses: peaceiris/actions-gh-pages@v3
