@@ -225,7 +225,7 @@ var assemblies = [
     "name": "CubicIntersection.Api",
     "classes": [
       { "name": "CubicIntersection.Api.Extensions", "rp": "CubicIntersection.Api_Extensions.html", "cl": 9, "ucl": 0, "cal": 9, "tl": 26, "ct": "LineCoverage", "mc": "-", "cb": 1, "tb": 2, "lch": [], "bch": [], "hc": [] },
-      { "name": "Program", "rp": "CubicIntersection.Api_Program.html", "cl": 43, "ucl": 1, "cal": 44, "tl": 66, "ct": "LineCoverage", "mc": "-", "cb": 3, "tb": 4, "lch": [], "bch": [], "hc": [] },
+      { "name": "Program", "rp": "CubicIntersection.Api_Program.html", "cl": 45, "ucl": 1, "cal": 46, "tl": 67, "ct": "LineCoverage", "mc": "-", "cb": 3, "tb": 4, "lch": [], "bch": [], "hc": [] },
     ]},
   {
     "name": "CubicIntersection.Application",
