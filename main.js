@@ -225,7 +225,7 @@ var assemblies = [
     "name": "CubicIntersection.Api",
     "classes": [
       { "name": "CubicIntersection.Api.Extensions", "rp": "CubicIntersection.Api_Extensions.html", "cl": 9, "ucl": 0, "cal": 9, "tl": 26, "ct": "LineCoverage", "mc": "-", "cb": 1, "tb": 2, "lch": [], "bch": [], "hc": [] },
-      { "name": "Program", "rp": "CubicIntersection.Api_Program.html", "cl": 45, "ucl": 1, "cal": 46, "tl": 67, "ct": "LineCoverage", "mc": "-", "cb": 3, "tb": 4, "lch": [], "bch": [], "hc": [] },
+      { "name": "Program", "rp": "CubicIntersection.Api_Program.html", "cl": 48, "ucl": 1, "cal": 49, "tl": 72, "ct": "LineCoverage", "mc": "-", "cb": 3, "tb": 4, "lch": [], "bch": [], "hc": [] },
     ]},
   {
     "name": "CubicIntersection.Application",
@@ -239,7 +239,7 @@ var assemblies = [
       { "name": "CubicIntersection.Domain.Cubic", "rp": "CubicIntersection.Domain_Cubic.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 3, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "CubicIntersection.Domain.CubicRequest", "rp": "CubicIntersection.Domain_CubicRequest.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 3, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "CubicIntersection.Domain.CubicResponse", "rp": "CubicIntersection.Domain_CubicResponse.html", "cl": 10, "ucl": 0, "cal": 10, "tl": 31, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
-      { "name": "CubicIntersection.Domain.Dimensions", "rp": "CubicIntersection.Domain_Dimensions.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 3, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
+      { "name": "CubicIntersection.Domain.Dimension", "rp": "CubicIntersection.Domain_Dimension.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 3, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
     ]},
   {
     "name": "CubicIntersection.Infrastructure",
