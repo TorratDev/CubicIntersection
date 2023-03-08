@@ -29,7 +29,12 @@ builder.Configuration.AddAppSettingsConfiguration(builder.Environment);
 builder.Services.Configure<CacheOptions>(builder.Configuration.GetSection("Cache"));
 
 var app = builder.Build();
-app.UseCors();
+
+app.UseCors(policyBuilder =>
+    policyBuilder.AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod());
+
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {

@@ -1,3 +1,3 @@
 namespace CubicIntersection.Domain;
 
-public sealed record Cubic(Dimensions Dimensions, Center Center);
+public sealed record Cubic(Dimension Dimension, Center Center);

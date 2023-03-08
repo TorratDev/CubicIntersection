@@ -86,9 +86,9 @@ public class PipelineShould
     private static CubicRequest BuildCubicRequest(double firstDimension, double firstCenter, double secondDimension,
         double secondCenter)
     {
-        var first = new Cubic(new Dimensions(firstDimension, firstDimension, firstDimension),
+        var first = new Cubic(new Dimension(firstDimension, firstDimension, firstDimension),
             new Center(firstCenter, firstCenter, firstCenter));
-        var second = new Cubic(new Dimensions(secondDimension, secondDimension, secondDimension),
+        var second = new Cubic(new Dimension(secondDimension, secondDimension, secondDimension),
             new Center(secondCenter, secondCenter, secondCenter));
         var cubicRequest = new CubicRequest(first, second);
         return cubicRequest;

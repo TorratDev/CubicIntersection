@@ -37,8 +37,8 @@ public class ApiShould : IntegrationTestBase, IClassFixture<WebApplicationFactor
     [InlineData("/api/pipeline")]
     public async Task ReturnSuccessResponse(string url)
     {
-        var first = new Cubic(new Dimensions(2, 2, 2), new Center(1.5, 1.5, 1.5));
-        var second = new Cubic(new Dimensions(2, 2, 2), new Center(0, 0, 0));
+        var first = new Cubic(new Dimension(2, 2, 2), new Center(1.5, 1.5, 1.5));
+        var second = new Cubic(new Dimension(2, 2, 2), new Center(0, 0, 0));
         var cubicRequest = new CubicRequest(first, second);
 
         var jsonContent = JsonContent.Create(cubicRequest);
@@ -72,8 +72,8 @@ public class ApiShould : IntegrationTestBase, IClassFixture<WebApplicationFactor
 
     private async Task RunAndAssertPost(string url)
     {
-        var first = new Cubic(new Dimensions(2, 2, 2), new Center(1.5, 1.5, 1.5));
-        var second = new Cubic(new Dimensions(2, 2, 2), new Center(0, 0, 0));
+        var first = new Cubic(new Dimension(2, 2, 2), new Center(1.5, 1.5, 1.5));
+        var second = new Cubic(new Dimension(2, 2, 2), new Center(0, 0, 0));
         var cubicRequest = new CubicRequest(first, second);
 
         var jsonContent = JsonContent.Create(cubicRequest);
