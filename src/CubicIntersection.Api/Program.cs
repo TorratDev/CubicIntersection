@@ -23,6 +23,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddServices();
+builder.Services.AddGrpc();
 
 builder.Configuration.AddAppSettingsConfiguration(builder.Environment);
 builder.Services.Configure<CacheOptions>(builder.Configuration.GetSection("Cache"));
@@ -54,6 +55,8 @@ app.MapPost("/api/pipeline", (CubicRequest cubicRequest, IPipeline pipeline) =>
 
     return Results.Ok(response);
 });
+
+// app.MapGrpcService<CubicService>();
 
 app.Run();
 
