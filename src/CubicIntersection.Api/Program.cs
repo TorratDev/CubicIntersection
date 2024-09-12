@@ -48,24 +48,7 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = string.Empty;
 });
 
-app.MapPost("/api/basic", (CubicRequest cubicRequest, IIntersectService intersectService) =>
-{
-    if (intersectService.Intersects(cubicRequest.First, cubicRequest.Second))
-    {
-        return Results.Ok(
-            CubicResponse.Success(intersectService.IntersectedVolume(cubicRequest.First, cubicRequest.Second))
-        );
-    }
-
-    return Results.Ok(CubicResponse.Failure());
-});
-
-app.MapPost("/api/pipeline", (CubicRequest cubicRequest, IPipeline pipeline) =>
-{
-    var response = pipeline.Run(cubicRequest);
-
-    return Results.Ok(response);
-});
+app.MapMinimalEndpoints();
 
 // app.MapGrpcService<CubicService>();
 
