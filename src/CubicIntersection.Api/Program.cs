@@ -64,9 +64,9 @@ app.MapPost("/api/pipeline", (CubicRequest cubicRequest, IPipeline pipeline) =>
 
 // app.MapGrpcService<CubicService>();
 
-app.Run();
+await app.RunAsync();
 
-
+// Test usage
 namespace CubicIntersection.Api
 {
     public partial class Program
