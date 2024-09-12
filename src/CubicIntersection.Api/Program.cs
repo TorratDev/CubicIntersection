@@ -12,6 +12,7 @@ builder.WebHost.UseUrls(http);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddMemoryCache();
+builder.Services.AddCors();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1",
@@ -29,6 +30,11 @@ builder.Configuration.AddAppSettingsConfiguration(builder.Environment);
 builder.Services.Configure<CacheOptions>(builder.Configuration.GetSection("Cache"));
 
 var app = builder.Build();
+
+app.UseCors(policyBuilder =>
+    policyBuilder.AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod());
 
 app.UseSwagger();
 app.UseSwaggerUI(c =>
