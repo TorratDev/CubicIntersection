@@ -18,8 +18,10 @@ public static class Extensions
 
     public static IServiceCollection AddServices(this IServiceCollection serviceCollection)
     {
-        return serviceCollection.AddSingleton<IPipeline, Pipeline>()
-            .AddSingleton<IIntersectService, IntersectService>()
+        return 
+            serviceCollection.AddSingleton<IPipeline, Pipeline>()
+            .AddKeyedSingleton<IIntersectService, IntersectService>("Regular")
+            .AddKeyedSingleton<IIntersectService, MirrorIntersectService>("Mirror")
             .AddSingleton<IVolumeCalculator, VolumeCalculator>()
             .AddSingleton<IResponseCache, ResponseCache>();
     }
