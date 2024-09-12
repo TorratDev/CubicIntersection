@@ -1,5 +1,4 @@
 using CubicIntersection.Api;
-using CubicIntersection.Application;
 using CubicIntersection.Domain;
 using Microsoft.OpenApi.Models;
 
@@ -10,9 +9,23 @@ var http = $"http://0.0.0.0:{port}";
 Console.WriteLine(port);
 builder.WebHost.UseUrls(http);
 
+builder.Services
+    .AddControllers()
+    .AddJsonOptions(options =>
+        options.JsonSerializerOptions.PropertyNameCaseInsensitive = false
+    )
+    ;
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddMemoryCache();
-builder.Services.AddCors();
+
+builder.Services.AddCors(options =>
+    options.AddPolicy("CORSPolicy",
+        policyBuilder =>
+            policyBuilder.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+    )
+);
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1",
@@ -24,16 +37,14 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddServices();
+builder.Services.AddGrpc();
 
 builder.Configuration.AddAppSettingsConfiguration(builder.Environment);
 builder.Services.Configure<CacheOptions>(builder.Configuration.GetSection("Cache"));
 
 var app = builder.Build();
 
-app.UseCors(policyBuilder =>
-    policyBuilder.AllowAnyOrigin()
-        .AllowAnyHeader()
-        .AllowAnyMethod());
+app.UseCors("CORSPolicy");
 
 app.UseSwagger();
 app.UseSwaggerUI(c =>
@@ -42,28 +53,14 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = string.Empty;
 });
 
-app.MapPost("/api/basic", (CubicRequest cubicRequest, IIntersectService intersectService) =>
-{
-    if (intersectService.Intersects(cubicRequest.First, cubicRequest.Second))
-    {
-        return Results.Ok(
-            CubicResponse.Success(intersectService.IntersectedVolume(cubicRequest.First, cubicRequest.Second))
-        );
-    }
+app.MapControllers();
+app.MapMinimalEndpoints();
 
-    return Results.Ok(CubicResponse.Failure());
-});
+// app.MapGrpcService<CubicService>();
 
-app.MapPost("/api/pipeline", (CubicRequest cubicRequest, IPipeline pipeline) =>
-{
-    var response = pipeline.Run(cubicRequest);
+await app.RunAsync();
 
-    return Results.Ok(response);
-});
-
-app.Run();
-
-
+// Test usage
 namespace CubicIntersection.Api
 {
     public partial class Program

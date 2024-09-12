@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "CubicService";
+
+package Cubic;
+
+// The greeting service definition.
+service CubicService {
+  // Sends a greeting
+  rpc Calculate (CubicRequest) returns (CubicResponse);
+}
+
+// The request message containing the user's name.
+message CubicRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings.
+message CubicResponse {
+  string message = 1;
+}
