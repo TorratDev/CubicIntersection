@@ -1,5 +1,4 @@
 using CubicIntersection.Api;
-using CubicIntersection.Application;
 using CubicIntersection.Domain;
 using Microsoft.OpenApi.Models;
 
@@ -10,6 +9,12 @@ var http = $"http://0.0.0.0:{port}";
 Console.WriteLine(port);
 builder.WebHost.UseUrls(http);
 
+builder.Services
+    .AddControllers()
+    .AddJsonOptions(options =>
+        options.JsonSerializerOptions.PropertyNameCaseInsensitive = false
+    )
+    ;
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddMemoryCache();
 
@@ -48,6 +53,7 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = string.Empty;
 });
 
+app.MapControllers();
 app.MapMinimalEndpoints();
 
 // app.MapGrpcService<CubicService>();

@@ -10,7 +10,7 @@ public class IntersectServiceShould
     [Fact]
     public void Intersect()
     {
-        var intersectService = new IntersectService();
+        var intersectService = new BasicIntersectService();
         var firstCubic = new Cubic(new Dimension(2, 2, 2), new Center(1.5, 1.5, 1.5));
         var secondCubic = new Cubic(new Dimension(2, 2, 2), new Center(0, 0, 0));
 
@@ -22,7 +22,7 @@ public class IntersectServiceShould
     [Fact]
     public void NotIntersect()
     {
-        var intersectService = new IntersectService();
+        var intersectService = new BasicIntersectService();
         var firstCubic = new Cubic(new Dimension(2, 2, 2), new Center(2.5, 2.5, 2.5));
         var secondCubic = new Cubic(new Dimension(2, 2, 2), new Center(0, 0, 0));
 
@@ -34,7 +34,7 @@ public class IntersectServiceShould
     [Fact]
     public void ReturnIntersectVolume_0_125()
     {
-        var intersectService = new IntersectService();
+        var intersectService = new BasicIntersectService();
         var firstCubic = new Cubic(new Dimension(2, 2, 2), new Center(1.5, 1.5, 1.5));
         var secondCubic = new Cubic(new Dimension(2, 2, 2), new Center(0, 0, 0));
 
@@ -46,7 +46,7 @@ public class IntersectServiceShould
     [Fact]
     public void ReturnIntersectVolume_0()
     {
-        var intersectService = new IntersectService();
+        var intersectService = new BasicIntersectService();
         var firstCubic = new Cubic(new Dimension(2, 2, 2), new Center(2.5, 2.5, 2.5));
         var secondCubic = new Cubic(new Dimension(2, 2, 2), new Center(0, 0, 0));
 

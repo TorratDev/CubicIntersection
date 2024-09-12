@@ -80,7 +80,7 @@ public class PipelineShould
     {
         cubicRequest = BuildCubicRequest(firstDimension, firstCenter, secondDimension, secondCenter);
 
-        return new Pipeline(new IntersectService(), new VolumeCalculator(), _mockCache.Object);
+        return new Pipeline(new BasicIntersectService(), new VolumeCalculator(), _mockCache.Object);
     }
 
     private static CubicRequest BuildCubicRequest(double firstDimension, double firstCenter, double secondDimension,

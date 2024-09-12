@@ -3,7 +3,7 @@ using CubicIntersection.Domain;
 
 namespace CubicIntersection.Infrastructure;
 
-public class IntersectService : IIntersectService
+public class BasicIntersectService : IIntersectService
 {
     public bool Intersects(Cubic first, Cubic second)
     {
