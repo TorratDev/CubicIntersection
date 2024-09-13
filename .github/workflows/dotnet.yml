@@ -49,7 +49,7 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PTA }}
           publish_dir: ./TestResults/CoverageReport
           publish_branch: gh-pages
           commit_message: "Update code coverage report"
