@@ -12,9 +12,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup .NET 8
-        uses: actions/setup-dotnet@v1
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v4.0.1
         with:
           dotnet-version: 8.0.x
       - name: Restore NuGet packages
@@ -26,26 +27,23 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup .NET 8
-        uses: actions/setup-dotnet@v1
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v4.0.1
         with:
           dotnet-version: 8.0.x
       - name: Test
         run: dotnet test --configuration Release --collect:"XPlat Code Coverage" --settings coverlet.runsettings
-
       - name: Install ReportGenerator
         run: dotnet tool install --global dotnet-reportgenerator-globaltool --version 5.3.9
-
       - name: Generate coverage report
         run: reportgenerator -reports:'**/coverage.cobertura.xml' "-targetdir:TestResults/CoverageReport" "-reporttypes:Html;Lcov;"
-
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2.3.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: ./TestResults/CoverageReport/lcov.info
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
