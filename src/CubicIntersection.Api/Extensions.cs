@@ -17,14 +17,19 @@ public static class Extensions
             .AddEnvironmentVariables();
     }
 
+    public const string Singleton = "Singleton";
+    public const string Scoped = "Scoped";
+    public const string Transient = "Transient";
+
     public static IServiceCollection AddServices(this IServiceCollection serviceCollection)
     {
         return
             serviceCollection
                 .AddSingleton<IPipeline, Pipeline>()
-                .AddSingleton<IPipelineTransientAndScoped, PipelineTransientAndScoped>()
-                .AddKeyedSingleton<IGenerator, TransientGenerator>("Transient")
-                .AddKeyedSingleton<IGenerator, ScopedGenerator>("Scoped")
+                .AddTransient<IPipelineTransientAndScoped, PipelineTransientAndScoped>()
+                .AddKeyedTransient<IGenerator, TransientGenerator>(Transient)
+                .AddKeyedScoped<IGenerator, ScopedGenerator>(Scoped)
+                .AddKeyedSingleton<IGenerator, SingletonGenerator>(Singleton)
                 .AddKeyedSingleton<IIntersectService, BasicIntersectService>("Basic")
                 .AddKeyedSingleton<IIntersectService, MirrorIntersectService>("Mirror")
                 .AddSingleton<BasicWrapper>()

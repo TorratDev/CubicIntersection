@@ -1,8 +1,7 @@
 using CubicIntersection.Application;
 using CubicIntersection.Domain;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace CubicIntersection.Infrastructure;
+namespace CubicIntersection.Api;
 
 public class Pipeline : IPipeline
 {

@@ -3,12 +3,13 @@ using CubicIntersection.Domain;
 
 namespace CubicIntersection.Infrastructure;
 
-public class ScopedGenerator : IGenerator
+public class SingletonGenerator : IGenerator
 {
+    private readonly IGenerator _generator;
     private static readonly int NextRandom = Random.Shared.Next(10);
     private readonly string _guid;
 
-    public ScopedGenerator()
+    public SingletonGenerator()
     {
         _guid = Guid.NewGuid().ToString();
     }

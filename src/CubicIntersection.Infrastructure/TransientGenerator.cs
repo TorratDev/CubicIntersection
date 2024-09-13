@@ -5,15 +5,21 @@ namespace CubicIntersection.Infrastructure;
 
 public class TransientGenerator : IGenerator
 {
+    private readonly string _guid;
+    private static readonly int NextRandom = Random.Shared.Next(10);
+
+    public TransientGenerator()
+    {
+        _guid = Guid.NewGuid().ToString();
+    }
+
     public Result<string, ErrorMessage> GetRandom()
     {
-        var nextRandom = Random.Shared.Next(5);
-
-        return nextRandom switch
+        return NextRandom switch
         {
             2 => ErrorMessage.Prohibited("prohibited message"),
             3 => ErrorMessage.Generic("generic message"),
-            _ => Guid.NewGuid().ToString()
+            _ => _guid
         };
     }
 }

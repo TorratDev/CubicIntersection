@@ -26,6 +26,7 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod()
     )
 );
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1",
