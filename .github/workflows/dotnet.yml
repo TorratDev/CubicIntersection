@@ -46,10 +46,10 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: ./TestResults/CoverageReport/lcov.info
 
-      - name: Deploy coverage report
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.PTA }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./TestResults/CoverageReport
           publish_branch: gh-pages
           commit_message: "Update code coverage report"
