@@ -69,12 +69,18 @@ public class PipelineTransientAndScoped : IPipelineTransientAndScoped
 
         return resultSingletonSecond.Match(
             success => AlternativeResponse.Success(
-                $"{resultSingletonFirst.Value}//" +
-                $"{success}**" +
-                $"{resultScopedFirst.Value}**" +
-                $"{resultScopedSecond.Value}++" +
-                $"{resultTransientFirst.Value}++" +
-                $"{resultTransientSecond.Value}//"),
+                [
+                    resultSingletonFirst.Value,
+                    success
+                ],
+                [
+                    resultScopedFirst.Value,
+                    resultScopedSecond.Value
+                ],
+                [
+                    resultTransientFirst.Value,
+                    resultTransientSecond.Value
+                ]),
             failure =>
             {
                 return failure.Type switch

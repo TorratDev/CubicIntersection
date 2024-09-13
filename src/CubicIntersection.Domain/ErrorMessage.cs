@@ -10,7 +10,7 @@ public class ErrorMessage
 
     public static ErrorMessage Empty()
     {
-        return new ErrorMessage()
+        return new ErrorMessage
         {
             Type = ErrorType.Empty
         };
@@ -18,7 +18,7 @@ public class ErrorMessage
 
     public static ErrorMessage Generic(string message)
     {
-        return new ErrorMessage()
+        return new ErrorMessage
         {
             Message = message,
             Type = ErrorType.Generic
@@ -27,7 +27,7 @@ public class ErrorMessage
 
     public static ErrorMessage Prohibited(string message)
     {
-        return new ErrorMessage()
+        return new ErrorMessage
         {
             Message = message,
             Type = ErrorType.Prohibited
