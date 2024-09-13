@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using AutoFixture;
+using CubicIntersection.Api;
 using CubicIntersection.Application;
 using CubicIntersection.Domain;
 using CubicIntersection.Infrastructure;

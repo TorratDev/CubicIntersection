@@ -39,6 +39,12 @@ public static class Endpoints
             return Results.Ok(response);
         });
 
+        builder.MapGet("/api/transientAndScoped", (IPipelineTransientAndScoped pipeline) =>
+        {
+            var response = pipeline.Run();
+
+            return Results.Ok(response);
+        });
 
         return builder;
     }

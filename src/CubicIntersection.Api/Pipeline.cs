@@ -1,7 +1,7 @@
 using CubicIntersection.Application;
 using CubicIntersection.Domain;
 
-namespace CubicIntersection.Infrastructure;
+namespace CubicIntersection.Api;
 
 public class Pipeline : IPipeline
 {
@@ -10,7 +10,7 @@ public class Pipeline : IPipeline
     private readonly IResponseCache _cache;
 
     public Pipeline(
-        IIntersectService intersectService,
+        [FromKeyedServices("Basic")] IIntersectService intersectService,
         IVolumeCalculator volumeCalculator,
         IResponseCache cache)
     {
